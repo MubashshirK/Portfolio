@@ -22,6 +22,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden}
+/* hide scrollbar while keeping scroll functional */
+html{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar{width:0;height:0;display:none}
 html,body{background:var(--paper);color:var(--ink)}
 body{
   font-family:var(--body);
@@ -258,15 +261,15 @@ section.tight{padding:70px 0}
 .capabilities-art .corner.br{bottom:0;right:0;border-bottom-width:1px;border-right-width:1px}
 .capabilities-copy h2{font-size:clamp(40px,4.8vw,64px);margin:22px 0 30px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-.card{padding:28px 26px 32px;background:var(--bone);border-radius:18px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(21,20,15,0.06);position:relative;overflow:hidden;transition:transform .2s ease}
-.card:hover{transform:translateY(-3px)}
+.card{padding:28px 26px 32px;background:var(--bone);border-radius:18px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(21,20,15,0.06);position:relative;overflow:hidden;transform:translateZ(0);backface-visibility:hidden;transition:transform .2s cubic-bezier(.22,.61,.36,1)}
+.card:hover{transform:translate3d(0,-3px,0)}
 .card .num{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:500;color:var(--coral);letter-spacing:0.04em;margin-bottom:16px;display:flex;justify-content:space-between;align-items:baseline}
 .card .num .tag{font-family:var(--sans);font-size:9.5px;color:var(--ink-faint);letter-spacing:0.18em;text-transform:uppercase;font-style:normal;font-weight:500}
 .card .icon{width:28px;height:28px;margin-bottom:16px;color:var(--ink)}
 .card h3{font-family:var(--sans);font-size:22px;font-weight:700;line-height:1.05;letter-spacing:-0.014em;margin-bottom:14px}
 .card p{font-family:var(--body);font-size:13.5px;color:var(--ink-mute);line-height:1.55;max-width:24ch}
-.card .arrow-mark{position:absolute;right:22px;bottom:22px;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);transition:all .18s ease;text-decoration:none}
-.card:hover .arrow-mark{background:var(--coral);border-color:var(--coral);color:#fff}
+.card .arrow-mark{position:absolute;right:22px;bottom:22px;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);transition:background-color .18s ease,border-color .18s ease,color .18s ease;text-decoration:none}
+.card .arrow-mark:hover{background:var(--coral);border-color:var(--coral);color:#fff}
 .card .arrow-mark svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 /* projects / labs */
@@ -369,8 +372,8 @@ section.tight{padding:70px 0}
 
 /* contact links */
 .contact-links{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px;max-width:560px}
-.contact-link{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:all .18s ease;font-family:var(--sans);font-size:13px;font-weight:500}
-.contact-link:hover{border-color:var(--coral);background:rgba(237,111,92,0.04);transform:translateX(4px)}
+.contact-link{position:relative;display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .3s ease,background-color .3s ease,transform .35s cubic-bezier(.22,.61,.36,1);font-family:var(--sans);font-size:13px;font-weight:500;transform:translateZ(0);backface-visibility:hidden;will-change:transform}
+.contact-link:hover{border-color:var(--coral);background:rgba(237,111,92,0.04);transform:translate3d(4px,0,0)}
 .contact-link .cl-icon{width:32px;height:32px;border-radius:8px;background:var(--bone);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .contact-link .cl-icon svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}
 .contact-link .cl-icon-fill svg{fill:currentColor;stroke:none}
@@ -549,4 +552,141 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
   .exp-card{padding:22px 18px}
   .hero-canvas-content{padding:24px}
   .hc-card{padding:14px 16px}
+}
+
+
+/* scroll-to-top + progress indicator */
+.scroll-top{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  width:56px;
+  height:56px;
+  z-index:60;
+  padding:0;
+  border:none;
+  border-radius:50%;
+  background:var(--paper);
+  color:var(--ink);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:var(--shadow),inset 0 0 0 1px var(--line-soft);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px) scale(.9);
+  transition:opacity .3s ease,transform .3s cubic-bezier(.22,.61,.36,1),visibility .3s ease;
+}
+.scroll-top.is-visible{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+}
+.scroll-top:hover{transform:translateY(-2px) scale(1.04)}
+.scroll-top:hover .scroll-top-arrow{color:var(--coral)}
+.scroll-top:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+.scroll-top-ring{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+.scroll-top-ring circle{
+  fill:none;
+  stroke-width:2.5;
+  cx:24;cy:24;r:21;
+}
+.scroll-top .st-track{stroke:var(--line)}
+.scroll-top .st-progress{
+  stroke:var(--coral);
+  stroke-linecap:round;
+  stroke-dasharray:131.946;
+  stroke-dashoffset:131.946;
+  transition:stroke-dashoffset .1s linear;
+}
+.scroll-top-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:color .18s ease;
+}
+.scroll-top-arrow svg{
+  width:18px;
+  height:18px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+@media(max-width:600px){
+  .scroll-top{bottom:20px;right:20px;width:50px;height:50px}
+  .scroll-top-arrow svg{width:16px;height:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .scroll-top{transition:opacity .2s ease,visibility .2s ease}
+  .scroll-top.is-visible{transform:none}
+  .scroll-top:hover{transform:none}
+  .scroll-top .st-progress{transition:none}
+}
+
+
+/* smooth motion polish — consistent hover lifts + stagger */
+.skill-block{position:relative;transform:translateZ(0);backface-visibility:hidden;will-change:transform;transition:transform .25s cubic-bezier(.22,.61,.36,1)}
+.skill-block::after{content:'';position:absolute;inset:0;border-radius:14px;box-shadow:var(--shadow);opacity:0;transition:opacity .25s ease;pointer-events:none}
+.skill-block:hover{transform:translate3d(0,-3px,0)}
+.skill-block:hover::after{opacity:1}
+
+.exp-card{position:relative;transform:translateZ(0);backface-visibility:hidden;will-change:transform;transition:transform .25s cubic-bezier(.22,.61,.36,1)}
+.exp-card::after{content:'';position:absolute;inset:0;border-radius:18px;box-shadow:var(--shadow);opacity:0;transition:opacity .25s ease;pointer-events:none}
+.exp-card:hover{transform:translate3d(0,-3px,0)}
+.exp-card:hover::after{opacity:1}
+
+/* monogram: scale on a GPU layer, fade the deeper shadow via pseudo-element
+   (avoids repainting box-shadow every frame, which caused the jitter) */
+.about-monogram{position:relative;transform:translateZ(0);backface-visibility:hidden;will-change:transform;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.about-monogram::after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:0 22px 48px -18px rgba(21,20,15,0.55);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.about-monogram:hover{transform:translateZ(0) scale(1.04)}
+.about-monogram:hover::after{opacity:1}
+
+.cc-monogram{transform:translateZ(0);backface-visibility:hidden;will-change:transform;transition:transform .3s cubic-bezier(.22,.61,.36,1),border-color .3s ease,color .3s ease}
+.cc-monogram:hover{transform:translateZ(0) rotate(-6deg) scale(1.05);border-color:var(--coral);color:var(--coral)}
+
+.contact-card{transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease}
+.contact-card:hover{transform:translateY(-4px)}
+
+.cert-icon{transform:translateZ(0);backface-visibility:hidden;transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.cert-card:hover .cert-icon{transform:translateZ(0) translateY(-2px) rotate(-4deg)}
+
+.lab-img{transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease}
+.lab:hover .lab-img{transform:translateY(-3px);box-shadow:0 22px 44px -22px rgba(21,20,15,0.32)}
+.lab-img img{transform:translateZ(0);backface-visibility:hidden;will-change:transform;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.lab:hover .lab-img img{transform:translateZ(0) scale(1.04)}
+
+/* stagger for experience cards */
+.exp-grid>.exp-card[data-reveal]:nth-child(1){--reveal-delay:0ms}
+.exp-grid>.exp-card[data-reveal]:nth-child(2){--reveal-delay:110ms}
+
+/* stagger for skill blocks within the revealed art panel */
+.skills-visual>.skill-block:nth-child(1){--reveal-delay:0ms}
+.skills-visual>.skill-block:nth-child(2){--reveal-delay:70ms}
+.skills-visual>.skill-block:nth-child(3){--reveal-delay:140ms}
+.skills-visual>.skill-block:nth-child(4){--reveal-delay:210ms}
+.skills-visual>.skill-block:nth-child(5){--reveal-delay:280ms}
+
+/* stagger for contact links */
+.contact-links>.contact-link:nth-child(1){--reveal-delay:0ms}
+.contact-links>.contact-link:nth-child(2){--reveal-delay:80ms}
+.contact-links>.contact-link:nth-child(3){--reveal-delay:160ms}
+.contact-links>.contact-link:nth-child(4){--reveal-delay:240ms}
+
+@media(prefers-reduced-motion:reduce){
+  .skill-block,.exp-card,.about-monogram,.cc-monogram,.contact-card,.contact-link,
+  .cert-icon,.lab-img,.lab-img img,.card{transition:none!important}
+  .skill-block:hover,.exp-card:hover,.about-monogram:hover,.cc-monogram:hover,
+  .contact-card:hover,.contact-link:hover,.lab:hover .lab-img,.lab:hover .lab-img img,
+  .cert-card:hover .cert-icon,.card:hover{transform:none!important}
+  .skill-block:hover::after,.exp-card:hover::after,.about-monogram:hover::after{opacity:0!important}
 }

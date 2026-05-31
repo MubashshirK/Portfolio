@@ -85,3 +85,42 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   fit();
   window.addEventListener('resize', fit);
 })();
+
+
+// Scroll-to-top button + page-length progress ring
+(function(){
+  var btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  var progress = btn.querySelector('.st-progress');
+  var CIRC = 2 * Math.PI * 21; // ring circumference (r=21)
+  var SHOW_AT = 400;           // px scrolled before button appears
+  var ticking = false;
+
+  if (progress) progress.style.strokeDasharray = CIRC;
+
+  function update(){
+    ticking = false;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+    if (progress) progress.style.strokeDashoffset = CIRC * (1 - pct);
+    btn.classList.toggle('is-visible', scrollTop > SHOW_AT);
+  }
+
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+
+  btn.addEventListener('click', function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  update();
+})();
