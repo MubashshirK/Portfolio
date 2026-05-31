@@ -91,6 +91,24 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     document.fonts.ready.then(fit);
   }
   window.addEventListener('load', fit);
+
+  // Reliable reveal for the footer mega name. The global reveal observer
+  // excludes the bottom 8% of the viewport, but this element is the last
+  // thing on the page and can sit permanently inside that zone on mobile,
+  // so it would never reveal. Use a lenient check tied to scroll/resize.
+  function revealMega(){
+    var rect = word.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh - 40 && rect.bottom > 0){
+      word.dataset.revealed = 'true';
+      window.removeEventListener('scroll', revealMega);
+      window.removeEventListener('resize', revealMega);
+    }
+  }
+  window.addEventListener('scroll', revealMega, {passive:true});
+  window.addEventListener('resize', revealMega, {passive:true});
+  window.addEventListener('load', revealMega);
+  revealMega();
 })();
 
 

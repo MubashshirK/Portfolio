@@ -423,7 +423,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
 .foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint)}
 .foot-bottom .right{display:inline-flex;gap:24px;align-items:center}
 .foot-bottom .pulse{width:6px;height:6px;border-radius:50%;background:var(--coral);display:inline-block;margin-right:6px;vertical-align:middle;animation:pulse 2.4s ease-in-out infinite}
-.foot-mega{margin-top:60px;padding-top:0;padding-bottom:12px;border-top:1px solid var(--line);overflow:hidden}
+.foot-mega{margin-top:60px;padding-top:0;padding-bottom:12px;border-top:1px solid var(--line)}
 .foot-mega .word{font-family:var(--sans);font-weight:900;font-size:clamp(48px,9.2vw,180px);letter-spacing:-0.04em;line-height:1.05;color:var(--ink);white-space:nowrap;margin-top:30px;padding-bottom:0.18em}
 .foot-mega .word em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--coral)}
 
