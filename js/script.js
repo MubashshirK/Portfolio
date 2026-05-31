@@ -75,15 +75,22 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   function fit(){
     var container = word.parentElement;
     var maxW = container.clientWidth;
+    if (maxW <= 0) return;
     var size = 180;
     word.style.fontSize = size + 'px';
-    while(word.scrollWidth > maxW && size > 30){
+    while(word.scrollWidth > maxW && size > 12){
       size -= 2;
       word.style.fontSize = size + 'px';
     }
   }
   fit();
   window.addEventListener('resize', fit);
+  // Re-fit once web fonts finish loading (they render wider than the
+  // fallback font and would otherwise overflow and get clipped on mobile)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fit);
+  }
+  window.addEventListener('load', fit);
 })();
 
 

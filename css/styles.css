@@ -480,7 +480,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
 @media(max-width:1280px){.container{padding:0 44px}.work{margin:0 44px;padding:90px 44px}}
 @media(max-width:1200px){.topbar-inner .mid{display:none}}
 @media(max-width:1180px){.nav-inner{gap:18px}.brand-meta{display:none}.nav-links{gap:28px}}
-@media(max-width:1080px){.container{padding:0 32px}.hero h1{font-size:clamp(36px,4.6vw,54px)}.labs-grid{grid-template-columns:repeat(2,1fr)}.certs-grid{grid-template-columns:repeat(2,1fr)}.foot-grid{grid-template-columns:2fr 1fr 1fr}.foot-grid .foot-col:nth-child(4),.foot-grid .foot-col:nth-child(5){display:none}}
+@media(max-width:1080px){.container{padding:0 32px}.hero h1{font-size:clamp(36px,4.6vw,54px)}.labs-grid{grid-template-columns:repeat(2,1fr)}.certs-grid{grid-template-columns:repeat(2,1fr)}.foot-grid{grid-template-columns:repeat(4,1fr);gap:32px}.foot-brand{grid-column:1/-1}}
 @media(max-width:880px){
   .container{padding:0 20px}
   .hero-grid,.about-grid,.capabilities-grid,.testimonial-grid,.cta-grid{grid-template-columns:1fr;gap:40px}
@@ -506,6 +506,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
   .wire-inner{grid-template-columns:1fr;gap:14px}
   .wire-left{border-right:none;border-bottom:1px solid var(--line);padding-right:0;padding-bottom:12px;min-height:0}
   .exp-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px 24px}
+  .foot-brand{grid-column:1/-1}
+  .foot-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+  .foot-bottom .right{flex-wrap:wrap;gap:8px 16px}
   .skills-visual{grid-template-columns:1fr}
   .skill-block.featured{grid-column:auto}
   .about-art-block{display:none}
@@ -544,8 +548,9 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
   .hero-stats .stat .ring{width:30px;height:30px;font-size:10px}
   .hero-actions{gap:10px}
   .btn{padding:12px 18px;font-size:13px}
-  .foot-grid{grid-template-columns:1fr 1fr}
-  .foot-grid .foot-col:nth-child(n+4){display:none}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px 20px}
+  .foot-brand{grid-column:1/-1}
+  .foot-mega .word{font-size:clamp(30px,11vw,180px);margin-top:18px}
   .work{padding:48px 20px;margin:0 8px}
   .cta-actions{flex-direction:column;align-items:flex-start}
   .sec-rule .meta-grp{display:none}
@@ -668,6 +673,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:60px}
 /* stagger for experience cards */
 .exp-grid>.exp-card[data-reveal]:nth-child(1){--reveal-delay:0ms}
 .exp-grid>.exp-card[data-reveal]:nth-child(2){--reveal-delay:110ms}
+.exp-grid>.exp-card[data-reveal]:nth-child(3){--reveal-delay:220ms}
 
 /* stagger for skill blocks within the revealed art panel */
 .skills-visual>.skill-block:nth-child(1){--reveal-delay:0ms}
