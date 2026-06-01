@@ -3,15 +3,52 @@
   if (!elements.length) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     for (var i = 0; i < elements.length; i++) elements[i].dataset.revealed = 'true';
+    // Instantly reveal skill blocks and exp cards
+    var sbs = document.querySelectorAll('.skills-visual > .skill-block, .exp-grid > .exp-card');
+    for (var s = 0; s < sbs.length; s++) sbs[s].dataset.revealed = 'true';
     return;
   }
+
   var observer = new IntersectionObserver(function (entries) {
     for (var i = 0; i < entries.length; i++) {
       if (!entries[i].isIntersecting) continue;
-      entries[i].target.dataset.revealed = 'true';
       observer.unobserve(entries[i].target);
+      (function (el) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            el.dataset.revealed = 'true';
+            // When capabilities-art reveals, stagger the skill blocks
+            if (el.classList.contains('capabilities-art')) {
+              var blocks = el.querySelectorAll('.skills-visual > .skill-block');
+              for (var k = 0; k < blocks.length; k++) {
+                (function (block) {
+                  requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                      block.dataset.revealed = 'true';
+                    });
+                  });
+                })(blocks[k]);
+              }
+            }
+            // When exp-grid reveals, stagger the experience cards
+            if (el.classList.contains('exp-grid')) {
+              var cards = el.querySelectorAll('.exp-card');
+              for (var k = 0; k < cards.length; k++) {
+                (function (card) {
+                  requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                      card.dataset.revealed = 'true';
+                    });
+                  });
+                })(cards[k]);
+              }
+            }
+          });
+        });
+      })(entries[i].target);
     }
   }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+
   for (var j = 0; j < elements.length; j++) observer.observe(elements[j]);
 })();
 
