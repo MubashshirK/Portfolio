@@ -98,7 +98,7 @@ body::before {
   top: 0;
   bottom: 0;
   width: 36px;
-  z-index: 3;
+  z-index: 100;
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -145,7 +145,7 @@ body::before {
 /* topbar */
 .topbar {
   border-bottom: 1px solid var(--line);
-  padding: 10px 0;
+  padding: 10px;
   background: var(--paper);
   position: relative;
   z-index: 4;
@@ -204,6 +204,17 @@ body::before {
   margin-right: 6px;
   animation: pulse 2.4s ease-in-out infinite;
 }
+
+.topbar .container {
+  max-width: none;
+  padding: 0px;   /* mobile / no-rails */
+}
+@media (min-width: 1281px) {
+  .topbar .container {
+    padding: 0 40px; /* desktop: 36px rail + 4px gap = flush */
+  }
+}
+
 .mobile-topbar-alt {
   display: none;
 }
