@@ -59,6 +59,57 @@
   });
 })();
 
+// Smooth wheel scrolling (lerp-based, desktop only)
+(function(){
+  // Skip entirely for users who prefer reduced motion, or on touch-primary devices
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Bail out on touch devices — native momentum scroll is already smooth there
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+  var target   = window.scrollY || 0; // where we want to be
+  var current  = target;              // where we are right now (interpolated)
+  var rafId    = null;
+  var EASE     = 0.072; // lower = slower/smoother, higher = snappier (0.05–0.12 is a good range)
+  var STEP_CAP = 240;   // max px per wheel tick — prevents huge jumps on fast scrolls
+
+  // Keep target in sync when scroll is driven externally (e.g. scrollIntoView from nav links).
+  // Only update when our own RAF loop is not running — if it is running, we own the scroll.
+  window.addEventListener('scroll', function(){
+    if (!rafId) {
+      target  = window.scrollY || 0;
+      current = target;
+    }
+  }, { passive: true });
+
+  function lerp(a, b, t){ return a + (b - a) * t; }
+
+  function tick(){
+    current = lerp(current, target, EASE);
+    // Stop the loop once we're close enough (sub-pixel)
+    if (Math.abs(target - current) < 0.5){
+      current = target;
+      rafId = null;
+      window.scrollTo(0, current);
+      return;
+    }
+    window.scrollTo(0, current);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('wheel', function(e){
+    // Only handle vertical wheel on the document itself
+    if (e.ctrlKey) return; // let browser handle pinch-zoom
+    e.preventDefault();
+
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    // Cap each wheel tick so a fast flick doesn't overshoot wildly
+    var delta = Math.max(-STEP_CAP, Math.min(STEP_CAP, e.deltaY));
+    target = Math.max(0, Math.min(maxScroll, target + delta));
+
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, { passive: false });
+})();
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
@@ -153,4 +204,90 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 
   update();
+})();
+
+// Wire ticker — row 1 (scrolls left)
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var row   = document.querySelector('.wire-row:not(.reverse)');
+  if (!row) return;
+  var track = row.querySelector('.marquee-track');
+  if (!track) return;
+
+  var SPEED_NORMAL = 0.10;
+  var SPEED_SLOW   = 0.03;
+  var EASE         = 0.06;
+
+  var dist = 0, speed = SPEED_NORMAL, targetSpeed = SPEED_NORMAL, lastTime = null, halfW = 0;
+
+  function measure(){ halfW = track.scrollWidth / 2; }
+  measure();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  window.addEventListener('load', measure);
+  window.addEventListener('resize', measure);
+
+  row.addEventListener('mouseenter', function(){ targetSpeed = SPEED_SLOW; });
+  row.addEventListener('mouseleave', function(){ targetSpeed = SPEED_NORMAL; });
+
+  function tick(ts){
+    if (lastTime === null) lastTime = ts;
+    var dt = Math.min(ts - lastTime, 64);
+    lastTime = ts;
+    speed += (targetSpeed - speed) * EASE;
+    dist  += speed * dt;
+    if (halfW > 0) dist = dist % halfW;
+    track.style.transform = 'translateX(' + (-dist) + 'px)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// Wire ticker — row 2 (scrolls right, opposite direction)
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var row   = document.querySelector('.wire-row.reverse');
+  if (!row) return;
+  var track = row.querySelector('.marquee-track');
+  if (!track) return;
+
+  var SPEED_NORMAL = 0.14;
+  var SPEED_SLOW   = 0.03;
+  var EASE         = 0.06;
+
+  var halfW = 0;
+  var dist  = 0;
+  var ready = false;
+  var speed = SPEED_NORMAL, targetSpeed = SPEED_NORMAL, lastTime = null;
+
+  function measure(){
+    var w = track.scrollWidth / 2;
+    if (w <= 0) return;
+    if (!ready) {
+      halfW = w;
+      dist  = -halfW;
+      ready = true;
+    } else {
+      halfW = w;
+    }
+  }
+  measure();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  window.addEventListener('load', measure);
+  window.addEventListener('resize', measure);
+
+  row.addEventListener('mouseenter', function(){ targetSpeed = SPEED_SLOW; });
+  row.addEventListener('mouseleave', function(){ targetSpeed = SPEED_NORMAL; });
+
+  function tick(ts){
+    if (lastTime === null) lastTime = ts;
+    var dt = Math.min(ts - lastTime, 64);
+    lastTime = ts;
+    speed += (targetSpeed - speed) * EASE;
+    dist  += speed * dt;
+    // dist runs from -halfW to 0; use modulo to avoid overshoot jitter
+    if (halfW > 0 && dist >= 0) dist = -halfW + (dist % halfW);
+    track.style.transform = 'translateX(' + dist + 'px)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
