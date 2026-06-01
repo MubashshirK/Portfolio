@@ -2566,6 +2566,7 @@ footer {
   overflow: hidden;
 }
 .foot-mega .word {
+  --reveal-delay: 800ms;
   font-family: var(--sans);
   font-weight: 900;
   font-size: clamp(28px, 9.2vw, 180px);
