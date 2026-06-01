@@ -287,7 +287,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (a) {
   var track = row.querySelector('.marquee-track');
   if (!track) return;
 
-  var SPEED_NORMAL = 0.14;
+  var SPEED_NORMAL = 0.08;
   var SPEED_SLOW = 0.03;
   var EASE = 0.06;
 
