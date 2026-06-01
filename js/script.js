@@ -74,10 +74,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   if (!word) return;
   function fit(){
     var container = word.parentElement;
-    var maxW = container.clientWidth;
+    // Use offsetWidth so we measure the container's own layout width,
+    // not the scroll width (which would grow if the word already overflows).
+    var maxW = container.offsetWidth;
     if (maxW <= 0) return;
+    // Start from the CSS clamp max so we always shrink, never grow into overflow.
     var size = 180;
     word.style.fontSize = size + 'px';
+    // scrollWidth is reliable here because .foot-mega has overflow:hidden,
+    // so it won't pollute the document scroll width during the loop.
     while(word.scrollWidth > maxW && size > 12){
       size -= 2;
       word.style.fontSize = size + 'px';
