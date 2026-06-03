@@ -1637,6 +1637,7 @@ section.tight {
   position: absolute;
   top: 12px;
   left: 12px;
+  z-index: 10;
   background: rgba(239, 231, 210, 0.9);
   color: var(--ink);
   padding: 4px 9px;
@@ -1646,6 +1647,10 @@ section.tight {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+.lab:hover .lab-img .badge {
+  opacity: 0;
 }
 .lab-img-inner {
   width: 100%;
@@ -1708,7 +1713,7 @@ section.tight {
   justify-content: center;
   color: var(--ink);
   margin-top: auto;
-  align-self: flex-start;
+  align-self: flex-end;
   text-decoration: none;
   transition: all 0.18s ease;
 }
