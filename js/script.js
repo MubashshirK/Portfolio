@@ -66,12 +66,31 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-// Pill filter (cosmetic)
+// Project pill filter
 (function () {
-  document.querySelectorAll('.pill').forEach(function (p) {
+  var pills = document.querySelectorAll('.pill[data-filter]');
+  if (!pills.length) return;
+  var grid = document.querySelector('.labs-grid');
+  if (!grid) return;
+  var labs = grid.querySelectorAll('.lab');
+  var prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  pills.forEach(function (p) {
     p.addEventListener('click', function () {
-      p.closest('.pills').querySelectorAll('.pill').forEach(function (x) { x.classList.remove('active') });
+      pills.forEach(function (x) { x.classList.remove('active'); });
       p.classList.add('active');
+      var filter = p.getAttribute('data-filter');
+      labs.forEach(function (lab) {
+        var show = filter === 'all' || lab.getAttribute('data-tag') === filter;
+        if (show) {
+          lab.style.display = '';
+          if (!prefersReduce) {
+            lab.dataset.revealed = 'true';
+          }
+        } else {
+          lab.style.display = 'none';
+        }
+      });
     });
   });
 })();

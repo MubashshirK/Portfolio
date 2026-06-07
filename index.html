@@ -7,11 +7,60 @@
   <title>Mubashshir Khan — Full-Stack Dev & Designer</title>
   <meta name="description"
     content="Mubashshir Khan — Full-Stack Web Developer and Data Analyst based in Aligarh, India. Building expressive, performant web products with Next.js, React, TypeScript and Python.">
+  <link rel="canonical" href="https://mubashshirkhan.com/">
+  <meta name="theme-color" content="#efe7d2">
+  <meta name="color-scheme" content="light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mubashshirkhan.com/">
+  <meta property="og:title" content="Mubashshir Khan — Full-Stack Developer & Designer">
+  <meta property="og:description"
+    content="Full-stack engineer with a designer's eye. Building expressive, performant web products with Next.js, React, TypeScript and Python.">
+  <meta property="og:image" content="https://mubashshirkhan.com/projects/tech-stack.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Mubashshir Khan · Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mubashshir Khan — Full-Stack Developer & Designer">
+  <meta name="twitter:description"
+    content="Full-stack engineer with a designer's eye. Building expressive, performant web products with Next.js, React, TypeScript and Python.">
+  <meta name="twitter:image" content="https://mubashshirkhan.com/projects/tech-stack.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mubashshir Khan",
+    "url": "https://mubashshirkhan.com/",
+    "image": "https://mubashshirkhan.com/assets/mubashshir.webp",
+    "jobTitle": "Full-Stack Web Developer",
+    "description": "Full-Stack Web Developer and Data Analyst based in Aligarh, India. Building expressive, performant web products with Next.js, React, TypeScript and Python.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aligarh",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": [
+      "Next.js", "React", "TypeScript", "JavaScript", "Python", "PHP",
+      "Node.js", "Tailwind CSS", "Prisma", "PostgreSQL", "NextAuth",
+      "TanStack Query", "Zustand", "Recharts", "framer-motion",
+      "shadcn/ui", "MySQL", "MongoDB", "Data Analysis"
+    ],
+    "sameAs": [
+      "https://github.com/MubashshirK",
+      "https://www.linkedin.com/in/mubashshir-khan230104/"
+    ],
+    "email": "mailto:mubashshirk786@gmail.com"
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="shortcut icon" href="favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="MK" />
+  <meta name="apple-mobile-web-app-title" content="Mubashshir" />
   <link rel="manifest" href="favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +72,8 @@
 
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="side-rail right">
     <span class="rail-text">Mubashshir Khan — Full-Stack Developer · Data Analyst</span>
   </div>
@@ -30,7 +81,7 @@
     <span class="rail-text">React · Next.js · TypeScript · Python · PHP</span>
   </div>
 
-  <div class="shell">
+  <div class="shell" id="main" tabindex="-1">
 
     <div class="topbar">
       <div class="container topbar-inner">
@@ -49,8 +100,8 @@
     <header class="nav">
       <div class="container nav-inner">
         <a href="#top" class="brand">
-          <span class="brand-mark">M</span>
-          <span>Mubashshir Khan</span>
+          <img class="brand-mark" src="logo/logo.webp" alt="Mubashshir Khan" width="48" height="48" />
+          <span>ubashshir Khan</span>
           <span class="brand-meta"><b>Portfolio · 2026</b>Full-Stack Dev · Designer</span>
         </a>
         <nav>
@@ -129,7 +180,7 @@
           <div class="hero-stats" data-reveal="">
             <div class="stat">
               <span class="ring solid">2+</span>
-              <span class="stat-label"><b>Years</b>experience</span>
+              <span class="stat-label"><b>Years</b>building</span>
             </div>
             <div class="stat">
               <span class="ring">5+</span>
@@ -140,25 +191,21 @@
               <span class="stat-label"><b>WPM</b>Monkeytype</span>
             </div>
           </div>
-          <div class="hero-foot" data-reveal="" style="display:none;">
-            <span class="meta">↳ &nbsp; Next.js · React · TypeScript · Python · PHP</span>
-            <span class="coord">github.com/MubashshirK</span>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Wire ticker -->
     <section class="wire" aria-label="Tech stack wire">
-      <div class="container wire-inner">
-        <div class="wire-left">
+      <div class="container wire-inner" data-reveal="">
+        <div class="wire-left" data-reveal="" style="--reveal-delay:80ms;">
           <span class="wire-mark" aria-hidden="true"><span class="wire-pulse"></span></span>
           <span class="wire-title">
             <b>Stack &amp; Tools</b>
-            <span>Languages · Frameworks · Platforms</span>
+            <span>Languages · Frameworks · Libraries</span>
           </span>
         </div>
-        <div class="wire-rows">
+        <div class="wire-rows" data-reveal="" style="--reveal-delay:160ms;">
           <div class="wire-row">
             <div class="marquee-track" aria-hidden="true">
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">TypeScript</span><span
@@ -173,7 +220,7 @@
                   class="wire-role">Language</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Next.js</span><span
                   class="wire-role">Full-Stack</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React.js</span><span
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React 19</span><span
                   class="wire-role">Frontend</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React Native</span><span
                   class="wire-role">Mobile</span></span>
@@ -181,14 +228,18 @@
                   class="wire-role">Backend</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Express.js</span><span
                   class="wire-role">Backend</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Tailwind CSS</span><span
-                  class="wire-role">Styling</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Bootstrap</span><span
-                  class="wire-role">Styling</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">PostgreSQL</span><span
+                  class="wire-role">Database</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Prisma</span><span
+                  class="wire-role">ORM</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">MySQL</span><span
                   class="wire-role">Database</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">MongoDB</span><span
                   class="wire-role">Database</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Tailwind CSS</span><span
+                  class="wire-role">Styling</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Bootstrap</span><span
+                  class="wire-role">Styling</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">HTML / CSS</span><span
                   class="wire-role">Markup</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">TypeScript</span><span
@@ -203,7 +254,7 @@
                   class="wire-role">Language</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Next.js</span><span
                   class="wire-role">Full-Stack</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React.js</span><span
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React 19</span><span
                   class="wire-role">Frontend</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">React Native</span><span
                   class="wire-role">Mobile</span></span>
@@ -211,14 +262,18 @@
                   class="wire-role">Backend</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Express.js</span><span
                   class="wire-role">Backend</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Tailwind CSS</span><span
-                  class="wire-role">Styling</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Bootstrap</span><span
-                  class="wire-role">Styling</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">PostgreSQL</span><span
+                  class="wire-role">Database</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Prisma</span><span
+                  class="wire-role">ORM</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">MySQL</span><span
                   class="wire-role">Database</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">MongoDB</span><span
                   class="wire-role">Database</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Tailwind CSS</span><span
+                  class="wire-role">Styling</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">Bootstrap</span><span
+                  class="wire-role">Styling</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-name">HTML / CSS</span><span
                   class="wire-role">Markup</span></span>
             </div>
@@ -227,11 +282,53 @@
             <div class="marquee-track" aria-hidden="true">
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">shadcn/ui</span><span
                   class="wire-role">UI Library</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Radix UI</span><span
+                  class="wire-role">UI Primitives</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">lucide-react</span><span
+                  class="wire-role">Icons</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Zustand</span><span
+                  class="wire-role">State</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">TanStack
+                  Query</span><span class="wire-role">Server State</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Recharts</span><span
+                  class="wire-role">Charts</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">framer-motion</span><span
+                  class="wire-role">Animation</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">@dnd-kit</span><span
+                  class="wire-role">Drag &amp; Drop</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">NextAuth v5</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Serwist</span><span
+                  class="wire-role">PWA</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Turbopack</span><span
+                  class="wire-role">Bundler</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">PostCSS</span><span
+                  class="wire-role">CSS Pipeline</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span
+                  class="wire-handle">react-hook-form</span><span class="wire-role">Forms</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Zod</span><span
+                  class="wire-role">Validation</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">bcryptjs</span><span
+                  class="wire-role">Hashing</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">JWT</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">OAuth 2.0</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Stripe</span><span
+                  class="wire-role">Payments</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sanity CMS</span><span
+                  class="wire-role">Content</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">REST APIs</span><span
+                  class="wire-role">Integration</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sonner</span><span
+                  class="wire-role">Toasts</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">next-themes</span><span
+                  class="wire-role">Theming</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">date-fns</span><span
+                  class="wire-role">Date Utils</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Figma</span><span
                   class="wire-role">Design</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Vercel</span><span
-                  class="wire-role">Deploy</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Netlify</span><span
                   class="wire-role">Deploy</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Docker</span><span
                   class="wire-role">Container</span></span>
@@ -243,16 +340,6 @@
                   class="wire-role">Build Tool</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">npm / pnpm</span><span
                   class="wire-role">Package Manager</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">JWT</span><span
-                  class="wire-role">Auth</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">OAuth 2.0</span><span
-                  class="wire-role">Auth</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Stripe</span><span
-                  class="wire-role">Payments</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sanity CMS</span><span
-                  class="wire-role">Content</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">REST APIs</span><span
-                  class="wire-role">Integration</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Pandas</span><span
                   class="wire-role">Data Analysis</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">NumPy</span><span
@@ -261,11 +348,53 @@
                   class="wire-role">Editor</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">shadcn/ui</span><span
                   class="wire-role">UI Library</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Radix UI</span><span
+                  class="wire-role">UI Primitives</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">lucide-react</span><span
+                  class="wire-role">Icons</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Zustand</span><span
+                  class="wire-role">State</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">TanStack
+                  Query</span><span class="wire-role">Server State</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Recharts</span><span
+                  class="wire-role">Charts</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">framer-motion</span><span
+                  class="wire-role">Animation</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">@dnd-kit</span><span
+                  class="wire-role">Drag &amp; Drop</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">NextAuth v5</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Serwist</span><span
+                  class="wire-role">PWA</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Turbopack</span><span
+                  class="wire-role">Bundler</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">PostCSS</span><span
+                  class="wire-role">CSS Pipeline</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span
+                  class="wire-handle">react-hook-form</span><span class="wire-role">Forms</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Zod</span><span
+                  class="wire-role">Validation</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">bcryptjs</span><span
+                  class="wire-role">Hashing</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">JWT</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">OAuth 2.0</span><span
+                  class="wire-role">Auth</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Stripe</span><span
+                  class="wire-role">Payments</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sanity CMS</span><span
+                  class="wire-role">Content</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">REST APIs</span><span
+                  class="wire-role">Integration</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sonner</span><span
+                  class="wire-role">Toasts</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">next-themes</span><span
+                  class="wire-role">Theming</span></span>
+              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">date-fns</span><span
+                  class="wire-role">Date Utils</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Figma</span><span
                   class="wire-role">Design</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Vercel</span><span
-                  class="wire-role">Deploy</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Netlify</span><span
                   class="wire-role">Deploy</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Docker</span><span
                   class="wire-role">Container</span></span>
@@ -277,16 +406,6 @@
                   class="wire-role">Build Tool</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">npm / pnpm</span><span
                   class="wire-role">Package Manager</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">JWT</span><span
-                  class="wire-role">Auth</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">OAuth 2.0</span><span
-                  class="wire-role">Auth</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Stripe</span><span
-                  class="wire-role">Payments</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Sanity CMS</span><span
-                  class="wire-role">Content</span></span>
-              <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">REST APIs</span><span
-                  class="wire-role">Integration</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">Pandas</span><span
                   class="wire-role">Data Analysis</span></span>
               <span class="wire-item"><span class="wire-dot">·</span><span class="wire-handle">NumPy</span><span
@@ -375,7 +494,7 @@
           </div>
         </div>
         <div class="footer-row">
-          <span class="mark">M</span>
+          <img class="mark" src="logo/logo.webp" alt="Mubashshir Khan" width="58" height="58" />
           <span>Research · Design · Build · Ship · Repeat</span>
           <span class="stamp">
             <span>Full-Stack Practice</span>
@@ -412,14 +531,8 @@
                   <path d="M8 21h8M12 17v4"></path>
                 </svg>
                 <h3>UI Engineering</h3>
-                <p>Next.js App Router, React, Tailwind, shadcn/ui. Type-safe, SSR-first, mobile-first interfaces that
-                  perform.</p>
-                <a class="arrow-mark" href="https://techstackk.vercel.app/" target="_blank" rel="noreferrer noopener"
-                  aria-label="View live project">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-                  </svg>
-                </a>
+                <p>Next.js App Router, React 19, Tailwind, shadcn/ui, Recharts, framer-motion. Type-safe, SSR-first,
+                  mobile-first interfaces that perform.</p>
               </div>
               <div class="card" data-reveal="">
                 <div class="num">02<span class="tag">Backend</span></div>
@@ -427,14 +540,8 @@
                   <path d="M4 6h16M4 10h16M4 14h10M4 18h6"></path>
                 </svg>
                 <h3>APIs & Auth</h3>
-                <p>Node.js, Express, PHP. REST APIs with JWT & OAuth 2.0, role-based access, and SQL-backed services.
-                </p>
-                <a class="arrow-mark" href="https://github.com/MubashshirK" target="_blank" rel="noreferrer noopener"
-                  aria-label="View GitHub">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-                  </svg>
-                </a>
+                <p>Node.js, Express, PHP, Prisma, NextAuth. REST APIs with JWT & OAuth 2.0, role-based access, and
+                  PostgreSQL-backed services.</p>
               </div>
               <div class="card" data-reveal="">
                 <div class="num">03<span class="tag">Data</span></div>
@@ -443,14 +550,8 @@
                   <path d="M7 12l4-4 4 4 4-4"></path>
                 </svg>
                 <h3>Data & Storage</h3>
-                <p>Python, Pandas, NumPy, MySQL, MongoDB. IBM-certified analysis pipelines and structured query design.
-                </p>
-                <a class="arrow-mark" href="https://github.com/MubashshirK" target="_blank" rel="noreferrer noopener"
-                  aria-label="View GitHub">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-                  </svg>
-                </a>
+                <p>Python, Pandas, NumPy, Prisma, PostgreSQL, MySQL, MongoDB. IBM-certified analysis pipelines and
+                  structured query design.</p>
               </div>
               <div class="card" data-reveal="">
                 <div class="num">04<span class="tag">Design</span></div>
@@ -463,11 +564,6 @@
                 <h3>Design Systems</h3>
                 <p>Figma, shadcn/ui, Tailwind. Component-driven design with consistent tokens, accessible patterns, and
                   clean visual hierarchy.</p>
-                <a class="arrow-mark" href="mailto:mubashshirk786@gmail.com" aria-label="Contact">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
@@ -486,33 +582,36 @@
                 <div class="sb-label">Frontend</div>
                 <div class="sb-title">React Ecosystem</div>
                 <div class="sb-tags">
-                  <span>Next.js</span><span>React.js</span><span>Tailwind</span><span>shadcn/ui</span><span>Bootstrap</span><span>HTML/CSS</span>
+                  <span>Next.js</span><span>React
+                    19</span><span>Tailwind</span><span>shadcn/ui</span><span>Recharts</span><span>framer-motion</span><span>HTML/CSS</span>
                 </div>
               </div>
               <div class="skill-block">
                 <div class="sb-label">Backend</div>
                 <div class="sb-title">Server & APIs</div>
                 <div class="sb-tags">
-                  <span>Node.js</span><span>Express</span><span>PHP</span><span>REST</span><span>JWT</span>
+                  <span>Node.js</span><span>Express</span><span>PHP</span><span>Prisma</span><span>NextAuth</span><span>JWT</span><span>OAuth
+                    2.0</span>
                 </div>
               </div>
               <div class="skill-block">
                 <div class="sb-label">Data & Storage</div>
                 <div class="sb-title">DB & Analysis</div>
                 <div class="sb-tags">
-                  <span>MySQL</span><span>MongoDB</span><span>Pandas</span><span>NumPy</span><span>SQL</span>
+                  <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Pandas</span><span>NumPy</span><span>SQL</span>
                 </div>
               </div>
               <div class="skill-block">
                 <div class="sb-label">DevOps & Tooling</div>
                 <div class="sb-title">Ship & Maintain</div>
                 <div class="sb-tags">
-                  <span>Vercel</span><span>Docker</span><span>Git</span><span>Vite</span><span>Postman</span>
+                  <span>Vercel</span><span>Turbopack</span><span>Serwist</span><span>Docker</span><span>Git</span><span>Postman</span>
                 </div>
               </div>
             </div>
             <div class="capabilities-preview">
-              <img src="assets/page3.webp" alt="Capabilities preview" class="capabilities-preview-img">
+              <img src="assets/page3.webp" alt="Capabilities preview" class="capabilities-preview-img" width="1264"
+                height="848" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -538,72 +637,96 @@
               used<span class="dot">.</span></h2>
           </div>
           <div class="pills" data-reveal="right">
-            <button class="pill active">All<span class="count">3</span></button>
-            <button class="pill">Full-Stack<span class="count">2</span></button>
-            <button class="pill">Frontend<span class="count">1</span></button>
+            <button class="pill active" data-filter="all">All<span class="count">3</span></button>
+            <button class="pill" data-filter="fullstack">Full-Stack<span class="count">2</span></button>
+            <button class="pill" data-filter="frontend">Frontend<span class="count">1</span></button>
           </div>
         </div>
         <div class="labs-grid">
-          <div class="lab" data-reveal="">
+          <div class="lab" data-reveal="" data-tag="frontend">
             <div class="lab-img" style="padding:0;overflow:hidden;">
               <span class="badge">Frontend</span>
-              <img src="projects/saas-analytics-dashboard.png" alt="SaaS Analytics Dashboard Preview"
+              <img src="projects/saas-analytics-dashboard.png" alt="SaaS Analytics Dashboard Preview" width="1350"
+                height="1000" loading="lazy" decoding="async"
                 style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="num-row"><span>Nº 01</span><span>2026</span></div>
             <h4>SaaS Analytics Dashboard</h4>
             <p>Full-featured SaaS analytics dashboard with animated KPIs, real-time charts, live event streaming, and
               adaptive theming — built with Next.js 16, React 19, and Recharts.</p>
-            <a class="arrow-mark" href="https://saas-dashboard-mk.vercel.app/" target="_blank" rel="noreferrer noopener"
-              aria-label="Open SaaS Analytics Dashboard">
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-              </svg>
-            </a>
+            <div class="lab-actions">
+              <a class="lab-source" href="https://github.com/MubashshirK/Saas-analytics-dashboard.git" target="_blank"
+                rel="noreferrer noopener" aria-label="View SaaS Analytics Dashboard source on GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22">
+                  </path>
+                </svg>
+                Source
+              </a>
+              <a class="arrow-mark" href="https://saas-dashboard-mk.vercel.app/" target="_blank"
+                rel="noreferrer noopener" aria-label="Open SaaS Analytics Dashboard live">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"></path>
+                </svg>
+              </a>
+            </div>
           </div>
-          <div class="lab" data-reveal="">
+          <div class="lab" data-reveal="" data-tag="fullstack">
             <div class="lab-img" style="padding:0;overflow:hidden;">
               <span class="badge">Full-Stack</span>
-              <img src="projects/tech-stack.png" alt="Tech Stack e-commerce site"
-                style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="projects/tech-stack.png" alt="Tech Stack e-commerce site" width="1051" height="780"
+                loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="num-row"><span>Nº 02</span><span>2025</span></div>
             <h4>Tech Stack</h4>
             <p>Full-stack e-commerce platform. Next.js, Stripe payments, OAuth auth, Sanity CMS, Tailwind — deployed on
               Vercel.</p>
-            <a class="arrow-mark" href="https://techstackk.vercel.app/" target="_blank" rel="noreferrer noopener"
-              aria-label="Open Tech Stack project">
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="lab" data-reveal="">
-            <div class="lab-img">
-              <span class="badge">Frontend</span>
-              <div class="lab-img-inner">
-                <div class="lab-img-bg"></div>
-                <div class="lab-img-code">// Pomodoro Timer
-                  const [timeLeft, setTimeLeft] =
-                  useState(session * 60);
-
-                  useEffect(() => {
-                  if (running) {
-                  interval = setInterval(tick, 1000);
-                  }
-                  }, [running]);</div>
-              </div>
+            <div class="lab-actions">
+              <a class="lab-source" href="https://github.com/MubashshirK/tech-stack.git" target="_blank"
+                rel="noreferrer noopener" aria-label="View Tech Stack source on GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22">
+                  </path>
+                </svg>
+                Source
+              </a>
+              <a class="arrow-mark" href="https://techstackk.vercel.app/" target="_blank" rel="noreferrer noopener"
+                aria-label="Open Tech Stack live">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"></path>
+                </svg>
+              </a>
             </div>
-            <div class="num-row"><span>Nº 03</span><span>2024</span></div>
-            <h4>Pomodoro App</h4>
-            <p>Web-based Pomodoro timer with customisable sessions, live progress bar, notification system, and sidebar
-              settings.</p>
-            <a class="arrow-mark" href="https://github.com/MubashshirK/pomodoro" target="_blank"
-              rel="noreferrer noopener" aria-label="Open Pomodoro App">
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H8M19 5v11"></path>
-              </svg>
-            </a>
+          </div>
+          <div class="lab" data-reveal="" data-tag="fullstack">
+            <div class="lab-img" style="padding:0;overflow:hidden;">
+              <span class="badge">Full-Stack</span>
+              <img src="projects/pomodoro-pro-dark.png" alt="Pomodoro Pro app preview" width="1661" height="1000"
+                loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div class="num-row"><span>Nº 03</span><span>2026</span></div>
+            <h4>Pomodoro Pro</h4>
+            <p>Full-stack Pomodoro app with a drift-free timer, drag-and-drop task management, streak tracking, and
+              timezone-aware stats — Next.js 16, Prisma, NextAuth, PWA via Serwist. CS50 final project.</p>
+            <div class="lab-actions">
+              <a class="lab-source" href="https://github.com/MubashshirK/pomodoro.git" target="_blank"
+                rel="noreferrer noopener" aria-label="View Pomodoro Pro source on GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22">
+                  </path>
+                </svg>
+                Source
+              </a>
+              <a class="arrow-mark" href="https://pro-pomodoro.vercel.app" target="_blank" rel="noreferrer noopener"
+                aria-label="Open Pomodoro Pro live app">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 19L19 5M19 5H8M19 5v11"></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="labs-foot">
@@ -790,18 +913,6 @@
               <h4>Certificate in Computer Applications</h4>
               <div class="cert-date">2021</div>
             </div>
-            <div class="cert-card" data-reveal="">
-              <div class="cert-icon" style="background:var(--olive);">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
-                  </path>
-                </svg>
-              </div>
-              <div class="cert-org">Udemy · W3School · CodeSignal</div>
-              <h4>Ongoing Self-Study</h4>
-              <div class="cert-date">2024 — Present</div>
-            </div>
           </div>
         </div>
 
@@ -854,7 +965,8 @@
             <h3>Tech Stack</h3>
             <p>Full-stack e-commerce with Stripe, OAuth and Sanity CMS. Server-side rendering, mobile-first.</p>
             <div class="wc-img" style="padding:0;overflow:hidden;">
-              <img src="projects/tech-stack.png" alt="Tech Stack e-commerce site screenshot"
+              <img src="projects/tech-stack.png" alt="Tech Stack e-commerce site screenshot" width="1051" height="780"
+                loading="lazy" decoding="async"
                 style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;">
             </div>
             <div class="meta-row">
@@ -872,7 +984,8 @@
             <p>Full-featured analytics dashboard with animated KPIs, real-time charts, live event streaming, and
               adaptive theming.</p>
             <div class="wc-img" style="padding:0;overflow:hidden;">
-              <img src="projects/saas-analytics-dashboard.png" alt="SaaS Analytics Dashboard screenshot"
+              <img src="projects/saas-analytics-dashboard.png" alt="SaaS Analytics Dashboard screenshot" width="1350"
+                height="1000" loading="lazy" decoding="async"
                 style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;">
             </div>
             <div class="meta-row">
@@ -1026,10 +1139,10 @@
         <div class="foot-grid">
           <div class="foot-brand" data-reveal="">
             <a href="#top" class="brand">
-              <span class="brand-mark">M</span>
-              <span>Mubashshir Khan</span>
+              <img class="brand-mark" src="logo/logo.webp" alt="Mubashshir Khan" width="48" height="48" />
+              <span>ubashshir Khan</span>
             </a>
-            <p style="margin-top:18px;">Full-Stack Web Developer, Designer &amp; Data Analyst based in Aligarh, India.
+            <p>Full-Stack Web Developer, Designer &amp; Data Analyst based in Aligarh, India.
               Open to full-time roles and remote freelance projects worldwide.</p>
           </div>
           <div class="foot-col" data-reveal="">
@@ -1044,18 +1157,18 @@
           <div class="foot-col" data-reveal="">
             <h5>Work</h5>
             <ul>
+              <li><a href="https://saas-dashboard-mk.vercel.app/" target="_blank" rel="noreferrer noopener">SaaS
+                  Dashboard</a></li>
               <li><a href="https://techstackk.vercel.app/" target="_blank" rel="noreferrer noopener">Tech Stack</a></li>
-              <li><a href="https://github.com/MubashshirK/pomodoro" target="_blank"
-                  rel="noreferrer noopener">Pomodoro</a>
+              <li><a href="https://pro-pomodoro.vercel.app" target="_blank" rel="noreferrer noopener">Pomodoro Pro</a>
               </li>
-              <li><a href="https://github.com/MubashshirK" target="_blank" rel="noreferrer noopener">GitHub</a></li>
             </ul>
           </div>
           <div class="foot-col" data-reveal="">
             <h5>Connect</h5>
             <ul>
               <li><a href="mailto:mubashshirk786@gmail.com">Email</a></li>
-              <li><a href="tel:+919528595077">WhatsApp</a></li>
+              <li><a href="https://wa.me/919528595077" target="_blank" rel="noreferrer noopener">WhatsApp</a></li>
               <li><a href="https://www.linkedin.com/in/mubashshir-khan230104/" target="_blank"
                   rel="noreferrer noopener">LinkedIn</a></li>
               <li><a href="https://github.com/MubashshirK" target="_blank" rel="noreferrer noopener">GitHub</a></li>
@@ -1069,9 +1182,9 @@
               <li><a href="certifications/harvard-cs-certificate.pdf" target="_blank" rel="noreferrer noopener">CS50 ·
                   Harvard</a></li>
               <li><a href="certifications/codesignal-fullstack-js-certificate.pdf" target="_blank"
-                  rel="noreferrer noopener">CodeSignal</a></li>
-              <li><a href="certifications/fcc-DSA-certificate.pdf" target="_blank"
-                  rel="noreferrer noopener">freeCodeCamp</a></li>
+                  rel="noreferrer noopener">Full-Stack JS · CodeSignal</a></li>
+              <li><a href="certifications/fcc-DSA-certificate.pdf" target="_blank" rel="noreferrer noopener">DSA ·
+                  FreeCodeCamp</a></li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 {
-  "name": "Mubashshir",
-  "short_name": "MK",
+  "name": "",
+  "short_name": "Mubashshir",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#efe7d2",
-  "background_color": "#efe7d2",
+  "theme_color": "#efe7b2",
+  "background_color": "#efe7b2",
   "display": "standalone"
 }
