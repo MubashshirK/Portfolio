@@ -75,6 +75,23 @@
   var labs = grid.querySelectorAll('.lab');
   var prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function updateGridColumns() {
+    var visible = 0;
+    for (var i = 0; i < labs.length; i++) {
+      if (labs[i].style.display !== 'none') visible++;
+    }
+    var w = window.innerWidth;
+    // Special case: 4 items on wide screens → 2 centered columns
+    if (visible === 4 && w >= 1200) {
+      grid.style.gridTemplateColumns = 'repeat(2, minmax(340px, 460px))';
+      grid.style.justifyContent = 'center';
+    } else {
+      // Clear inline styles so CSS media queries handle responsiveness
+      grid.style.gridTemplateColumns = '';
+      grid.style.justifyContent = '';
+    }
+  }
+
   pills.forEach(function (p) {
     p.addEventListener('click', function () {
       pills.forEach(function (x) { x.classList.remove('active'); });
@@ -91,8 +108,12 @@
           lab.style.display = 'none';
         }
       });
+      updateGridColumns();
     });
   });
+
+  updateGridColumns();
+  window.addEventListener('resize', updateGridColumns);
 })();
 
 // Mobile menu toggle
